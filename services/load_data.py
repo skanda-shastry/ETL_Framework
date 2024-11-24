@@ -1,3 +1,8 @@
+import pymongo
+import boto3
+from sqlalchemy import create_engine
+from app.config import Config
+
 def load_to_postgres(df, table_name: str):
     engine = create_engine(Config.POSTGRES_URI)
     with engine.connect() as conn:
